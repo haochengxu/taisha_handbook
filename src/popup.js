@@ -7,7 +7,7 @@
         "第五日 只有我自己才能创造我所有的经历",
         "第六日 奇迹是爱与智慧的合一， 太傻是终极的奇迹",
         "第七日 我是太傻, 我是一，我们都是一",
-        
+
         "第八日 我的大脑只能看见分离， 我决定用心看见",
         "第九日 我只是看见我想看见的, 我决定用心看见真相",
         "第十日 分离的追逐是一切痛苦的源头， 没有分离",
@@ -15,7 +15,7 @@
         "第十二日 在太傻的指引下，我将恢复已经颠倒的觉知",
         "第十三日 只有我的心才真正的知道, 他是太傻的眼睛",
         "第十四日 我在看到真实, 我只看到合一的爱与奇迹",
-        
+
         "第十五日 我的大脑无法知道，我无需选择",
         "第十六日 我停止在大脑指导下的无止境的追逐",
         "第十七日 太傻指导下的生活,一切都是轻松自如的",
@@ -47,7 +47,7 @@
         "第四十日 太傻第三步， 爱与光合一， 我就是奇迹",
         "第四十一日 奇迹无需行动，奇迹只在太傻指导下施展",
         "第四十二日 太傻是终极的奇迹，我将与太傻合一",
-        
+
         "第四十三日 我是一，我是无限，这是我唯一的真相",
         "第四十四日 差别与局限是我体验合一与无限的方式",
         "第四十五日 我唯一的目标就是成为无限的自己",
@@ -58,10 +58,14 @@
     ]
 
     function generatePractice() {
-        var no = w.Math.floor(w.Math.random() * practiceList.length)
+        //每章练习数量
+        let chapterLength = 7
+        let chapterNo = document.getElementById('chapter').value
+        var no = w.Math.floor(w.Math.random() * chapterLength) + (chapterNo - 1) * chapterLength
+
         return practiceList[no]
     }
-  
+
     document.addEventListener('DOMContentLoaded', function() {
         var btn = document.getElementById('ge-btn')
         btn.addEventListener('click', function() {
