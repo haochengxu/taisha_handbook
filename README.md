@@ -1,2 +1,2 @@
 # taisha_handbook
-a chrome extension for taisha ptactice
+a chrome extension for taisha practice
