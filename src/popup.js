@@ -1,4 +1,5 @@
 (function(w) {
+    var today = new Date().toLocaleString().slice(0, 10)
     var practiceList = [
         "第一日 清空大脑， 在当下， 我与太傻同在",
         "第二日 没有区别、好坏、对错、一切都已和谐 ",
@@ -66,10 +67,35 @@
         return practiceList[no]
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
+    function storePractice(p) {
+        var praticeToday = {}
+        praticeToday[today] = p
+        window.localStorage.setItem('practice', JSON.stringify(praticeToday))
+        return window.localStorage.getItem('practice')
+    }
+
+    function judgeExist() {
+        if (window.localStorage.getItem('practice') === null) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    function display() {
+        document.getElementById('practiceContent').innerHTML = JSON.parse(window.localStorage.getItem('practice'))[today]
+        document.querySelector('.operate').style.display = 'none'
+    }
+
+    function generate() {
         var btn = document.getElementById('ge-btn')
         btn.addEventListener('click', function() {
-            document.getElementById('practiceContent').innerHTML = generatePractice()
+            storePractice(generatePractice())
+            display()
         })
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        judgeExist() ? display() : generate()
     })
 })(window)
