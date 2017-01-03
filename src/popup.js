@@ -1,5 +1,5 @@
 (function(w) {
-    var today = new Date().toLocaleString().slice(0, 10)
+    var today = new Date().toJSON().slice(0, 10)
     var practiceList = [
         "第一日 清空大脑， 在当下， 我与太傻同在",
         "第二日 没有区别、好坏、对错、一切都已和谐 ",
@@ -75,7 +75,7 @@
     }
 
     function judgeExist() {
-        if (window.localStorage.getItem('practice') === null) {
+        if (JSON.parse(window.localStorage.getItem('practice'))[today] === undefined) {
             return false
         } else {
             return true
