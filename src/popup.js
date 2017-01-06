@@ -74,8 +74,10 @@
         return window.localStorage.getItem('practice')
     }
 
-    function judgeExist() {
-        if (JSON.parse(window.localStorage.getItem('practice'))[today] === undefined) {
+    function actionType() {
+        if (!window.localStorage.getItem('practice')) {
+            return false
+        } else if (JSON.parse(window.localStorage.getItem('practice'))[today] === undefined) {
             return false
         } else {
             return true
@@ -96,6 +98,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        judgeExist() ? display() : generate()
+        actionType() ? display() : generate()
     })
 })(window)
